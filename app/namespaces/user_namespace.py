@@ -6,10 +6,14 @@ api_user = Namespace('user', description='User operations')
 
 @api_user.route("/")
 class User(Resource):
+
     def get(self):
         """
-        returns a list of users
+        Returns a list of users
         """
+
+        return {"status": "user here"}
+
     def post(self):
         """
         Adds a new user to the list
