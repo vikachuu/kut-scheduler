@@ -19,7 +19,6 @@ class User(Resource):
         Adds a new user to the list
         """
 
-
 @api_user.route("<int:id>")
 class UserId(Resource):
     def get(self, id):
