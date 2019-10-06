@@ -17,10 +17,10 @@ class Login(Resource):
         data_check_string = "\n".join([key + "=" + params[key] for key in params.keys()])
         return data_check_string
 
-    def get(self):
-        return {"test": "login"}
+    # def get(self):
+    #     return {"test": "login"}
 
-    def post(self):
+    def get(self):
         """
         Adds new user
         """
@@ -42,7 +42,7 @@ class Login(Resource):
 
         hmac_string = hmac.new(secret_key_bytes, data_check_string_bytes, hashlib.sha256).hexdigest()
         if hmac_string == user_data["hash"]:
-            return {"status": "create user"}, 200
+            return {"status": "loged in successfully"}, 200
 
 
 
