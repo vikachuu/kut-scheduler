@@ -14,7 +14,10 @@ class Login(Resource):
 
     def _concat_params_to_string(self, params):
         params_for_hash = {key: params[key] for key in params.keys() if key != "hash"}
-        data_check_string = "\n".join([key + "=" + params[key] for key in params.keys()])
+        key_value_list = []
+        for key in sorted(params_for_hash.keys()):
+            key_value_list.append(key+"="+params_for_hash[key])
+        data_check_string = "\n".join(key_value_list)
         return data_check_string
 
     # def get(self):
@@ -28,12 +31,11 @@ class Login(Resource):
             "id": request.args.get("id", None),
             "first_name": request.args.get("first_name", None),
             "last_name": request.args.get("last_name", None),
-            "user_name": request.args.get("user_name", None),
+            "username": request.args.get("username", None),
             "photo_url": request.args.get("photo_url", None),
             "auth_date": request.args.get("auth_date", None),
             "hash": request.args.get("hash", None)
         }
-        print(user_data)
 
         data_check_string = self._concat_params_to_string(user_data)
         data_check_string_bytes = bytes(data_check_string, "utf-8")
