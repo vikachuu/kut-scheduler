@@ -12,7 +12,7 @@ api_login = Namespace("login", description="User login oauth2")
 @api_login.route("/")
 class Login(Resource):
 
-    def _concat_params_to_string(params):
+    def _concat_params_to_string(self, params):
         params_for_hash = {key: params[key] for key in params.keys() if key != "hash"}
         data_check_string = "\n".join([key + "=" + params[key] for key in params.keys()])
         return data_check_string
