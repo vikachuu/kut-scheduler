@@ -33,7 +33,8 @@ class Login(Resource):
             "auth_date": request.args.get("auth_date", None),
             "hash": request.args.get("hash", None)
         }
-      
+        print(user_data)
+
         data_check_string = self._concat_params_to_string(user_data)
         data_check_string_bytes = bytes(data_check_string, "utf-8")
 
