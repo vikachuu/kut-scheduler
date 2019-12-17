@@ -7,8 +7,8 @@ api = Api(blueprint, doc='/docs')
 
 from app.namespaces.health_namespace import api_health
 from app.namespaces.user_namespace import api_user
-from app.namespaces.login_namespace import api_login
+from app.namespaces.admin_namespace import api_admin
 
 api.add_namespace(api_health)
 api.add_namespace(api_user)
-api.add_namespace(api_login)
+api.add_namespace(api_admin)
