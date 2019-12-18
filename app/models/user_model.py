@@ -12,6 +12,8 @@ class User(db.Model):
     username = db.Column(db.String(100), unique=True, nullable=False)
     photo_url = db.Column(db.String(100))
 
+    repetition =  db.relationship("Repetition", back_populates="user")
+
     def __init__(self, user_id, first_name, last_name, username, photo_url):
         self.user_id = user_id
         self.first_name = first_name

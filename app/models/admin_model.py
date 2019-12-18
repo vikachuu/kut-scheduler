@@ -13,6 +13,8 @@ class Admin(db.Model):
     photo_url = db.Column(db.String(100))
     is_superadmin = db.Column(db.Boolean())
 
+    repetition =  db.relationship("Repetition", back_populates="admin")
+
     def __init__(self, admin_id, first_name, last_name, username, photo_url, is_superadmin=False):
         self.admin_id = admin_id
         self.first_name = first_name
