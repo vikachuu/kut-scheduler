@@ -4,9 +4,9 @@ from datetime import datetime
 from app.main import db
 
 class STATUS(enum.Enum):
-    APPROVED = "approved"
-    REVIEW = "review"
-    DECLINED = "declined"
+    APPROVED = "APPROVED"
+    REVIEW = "REVIEW"
+    DECLINED = "DECLINED"
 
 
 class Repetition(db.Model):
