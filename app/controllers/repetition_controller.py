@@ -10,7 +10,7 @@ class RepetitionController:
 
     @staticmethod
     def send_telegram_notification(text):
-        chat_id = "218723630"
+        chat_id = "359141231"
         response = requests.post(f"https://api.telegram.org/bot991724672:AAGoleDB0JnglGo8pLyKRJMi1GkrBiM0oE4/sendMessage?chat_id={chat_id}&text={text}")
         return response
 
