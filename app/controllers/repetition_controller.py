@@ -1,3 +1,5 @@
+import requests
+
 from app.models.repetition_model import Repetition, STATUS
 from app.main import db
 
@@ -5,7 +7,13 @@ from sqlalchemy import or_
 
 
 class RepetitionController:
-    
+
+    @staticmethod
+    def send_telegram_notification(text):
+        chat_id = "218723630"
+        response = requests.post(f"https://api.telegram.org/bot991724672:AAGoleDB0JnglGo8pLyKRJMi1GkrBiM0oE4/sendMessage?chat_id={chat_id}&text={text}")
+        return response
+
     @staticmethod
     def create_repetition(post_data):
         # check if repetition already exists
@@ -28,6 +36,8 @@ class RepetitionController:
             # insert the repetition
             db.session.add(repetition)
             db.session.commit()
+
+            response = RepetitionController.send_telegram_notification("New repetition was booked. Come and have a look.")
 
             return {"data": {
                         "repetition": {
